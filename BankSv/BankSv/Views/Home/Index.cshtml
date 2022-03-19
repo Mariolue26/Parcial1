@@ -1,0 +1,40 @@
+﻿@model BankSv.Models.Acciones;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1 class="titleName"> <i class="bi bi-bank2"></i>&nbsp; Banco de los trabajadores  </h1>
+
+<form asp-controller="Home" asp-action="Index" class="formulario">
+<div class="card">
+    <label style="text-align: center;"> SALDO ACTUAL: </label>
+    <h1 style="text-align: center;">
+        <label>@ViewBag.VariableAEnviar4 $</label>
+    </h1>
+
+     
+    <label><i class="bi bi-cash-coin"></i> Retiro:</label>
+    @if(ViewBag.cant==0)
+    {
+        <input type="number" asp-for="cant" placeholder="Ingresa la cantidad a retirar"class="form-control" min="5" />
+    }
+    else
+    {
+       <input type="number" asp-for="cant" placeholder="Ingresa la cantidad a retirar" value="@ViewBag.cant" class="form-control"  min="5" />
+    }
+    <br />
+   
+    <button class="btn btn-outline-success">RETIRAR</button> 
+
+   <p style="text-align:center;">El monto minimo a retirar es de 5$.</p>
+
+   <hr />
+    <label>RESPUESTA</label>
+   <label>@ViewBag.VariableAEnviar</label>
+   <hr />
+   <label>Monto retirado: @ViewBag.VariableAEnviar5 $.</label>
+   <label>@ViewBag.VariableAEnviar2</label>
+   <label>@ViewBag.VariableAEnviar3 Dolares.</label> 
+</div>
+</form>
